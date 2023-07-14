@@ -1,5 +1,5 @@
-import SEO from "@/components/SEO";
-import { Paths } from "@/config";
+import SEO from '@/components/SEO';
+import { Paths } from '@/config';
 
 const Main = () => {
   return (
