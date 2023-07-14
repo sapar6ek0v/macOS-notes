@@ -4,7 +4,7 @@ export const MainWrapper = styled.main`
   ${({ theme }) => theme.mixins.column};
 `;
 
-export const Container = styled.div`
-  width: min(90%, 1140px);
-  margin-inline: auto;
+export const FlexContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
 `;

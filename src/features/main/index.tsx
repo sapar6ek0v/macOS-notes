@@ -1,7 +1,10 @@
 import SEO from '@/components/SEO';
 import { Paths } from '@/config';
+
 import Header from './components/Header';
-import { MainWrapper } from './styles';
+import SideBar from './components/Sidebar';
+import WorkSpace from './components/WorkSpace';
+import { FlexContainer, MainWrapper } from './styles';
 
 const Main = () => {
   return (
@@ -16,6 +19,10 @@ const Main = () => {
       />
       <MainWrapper>
         <Header />
+        <FlexContainer>
+          <SideBar />
+          <WorkSpace />
+        </FlexContainer>
       </MainWrapper>
     </>
   );

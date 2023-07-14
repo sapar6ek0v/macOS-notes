@@ -1,13 +1,20 @@
 import styled from 'styled-components';
 
+export const HEADER_HEATH = 62;
+
 export const HeaderWrapper = styled.header`
   position: sticky;
   top: 0;
+  height: ${HEADER_HEATH}px;
   padding: 15px 0;
   background-color: var(--gray);
+  border-bottom: 1.5px solid rgba(var(--rgb-black), 0.25);
+  box-shadow: rgba(var(--rgb-black), 0.25) 1.95px 2.95px 2.5px;
 `;
 
 export const ApartContainer = styled.div`
+  width: min(90%, 1140px);
+  margin-inline: auto;
   ${({ theme }) => theme.mixins.apart};
 `;
 

@@ -4,7 +4,6 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
 import { FiEdit } from 'react-icons/fi';
 
-import { Container } from '../../styles';
 import SearchBox from '../SearchBox';
 import { ApartContainer, Button, ButtonGroup, HeaderWrapper } from './styles';
 
@@ -26,24 +25,22 @@ const Header = () => {
 
   return (
     <HeaderWrapper>
-      <Container>
-        <ApartContainer>
-          <ButtonGroup>
-            {icons.map((icon) => {
-              const Icon: IconType = icon.svg;
-              return (
-                <li key={icon.id}>
-                  <Button type="button">
-                    <Icon />
-                  </Button>
-                </li>
-              );
-            })}
-          </ButtonGroup>
+      <ApartContainer>
+        <ButtonGroup>
+          {icons.map((icon) => {
+            const Icon: IconType = icon.svg;
+            return (
+              <li key={icon.id}>
+                <Button type="button">
+                  <Icon />
+                </Button>
+              </li>
+            );
+          })}
+        </ButtonGroup>
 
-          <SearchBox />
-        </ApartContainer>
-      </Container>
+        <SearchBox />
+      </ApartContainer>
     </HeaderWrapper>
   );
 };
