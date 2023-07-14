@@ -22,4 +22,9 @@ export const mixins = {
     align-items: center;
     justify-content: center;
   `,
+
+  fs16: css`
+    font-size: 16px;
+    line-height: 20px;
+  `,
 };

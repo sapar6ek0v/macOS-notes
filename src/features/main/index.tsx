@@ -1,5 +1,7 @@
 import SEO from '@/components/SEO';
 import { Paths } from '@/config';
+import Header from './components/Header';
+import { MainWrapper } from './styles';
 
 const Main = () => {
   return (
@@ -12,7 +14,9 @@ const Main = () => {
         keywords="Notes, MacOS"
         href={Paths.MAIN}
       />
-      <div>Hello World!</div>
+      <MainWrapper>
+        <Header />
+      </MainWrapper>
     </>
   );
 };
