@@ -17,7 +17,7 @@ const SEO = ({ title, description, name, type, keywords, href }: Props) => {
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={name} />
-      <meta name="theme-color" content="#57cebf" />
+      <meta name="theme-color" content="#e5e5e5" />
       <meta name="robots" content="index, follow" />
       {/* End standard metadata tags */}
       {/* Facebook tags */}

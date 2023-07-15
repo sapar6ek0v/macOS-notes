@@ -23,6 +23,12 @@ export const mixins = {
     justify-content: center;
   `,
 
+  oneLineText: css`
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  `,
+
   fs14: css`
     font-size: 14px;
     line-height: 18px;

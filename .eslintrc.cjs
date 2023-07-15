@@ -30,6 +30,8 @@ module.exports = {
         functions: 'defaultArguments',
       },
     ],
+    'react/jsx-props-no-spreading': 0,
+    'react/jsx-no-useless-fragment': 0,
     'import/prefer-default-export': 0,
     'import/extensions': 0,
     'import/no-extraneous-dependencies': 0,

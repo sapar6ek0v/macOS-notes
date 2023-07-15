@@ -35,7 +35,7 @@ export const Line = styled.div`
   ${flexCenter};
   border-radius: 50%;
   margin: 3px;
-  border: 2px solid var(--black);
+  border: 2px solid #000000;
   border-left-color: transparent;
   border-top-color: transparent;
   animation: ${rotate} 3s cubic-bezier(0.35, -0.14, 0.79, 1.22) infinite;
