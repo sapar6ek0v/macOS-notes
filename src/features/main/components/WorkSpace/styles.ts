@@ -7,7 +7,7 @@ export const WorkSpaceWrapper = styled.section`
   padding: 15px 40px;
 `;
 
-export const CreatedDate = styled.h1`
+export const WorkSpaceDate = styled.h1`
   color: var(--dark-gray);
   ${({ theme }) => theme.mixins.fs16};
   font-weight: 500;
@@ -18,6 +18,26 @@ export const CreatedDate = styled.h1`
 export const WorkSpaceText = styled.p`
   color: var(--black);
   ${({ theme }) => theme.mixins.fs16};
-  font-weight: 400;
-  opacity: 0.9;
+
+  &.title {
+    font-weight: 500;
+    opacity: 0.9;
+
+    span {
+      opacity: 0.7;
+    }
+  }
+
+  &.text {
+    font-weight: 400;
+    opacity: 0.8;
+
+    span {
+      opacity: 0.6;
+    }
+  }
+
+  span {
+    font-style: italic;
+  }
 `;

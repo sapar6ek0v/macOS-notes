@@ -27,6 +27,12 @@ export const ItemTitle = styled.p`
   color: var(--black);
   ${({ theme }) => theme.mixins.fs16};
   font-weight: 600;
+  ${({ theme }) => theme.mixins.oneLineText};
+
+  span {
+    font-style: italic;
+    opacity: 0.65;
+  }
 `;
 
 export const ItemFooterGroup = styled.div`
@@ -34,12 +40,23 @@ export const ItemFooterGroup = styled.div`
   gap: 12px;
 `;
 
-const BaseText = styled.span`
+const BaseText = styled.p`
   color: var(--black);
   ${({ theme }) => theme.mixins.fs14};
-  font-weight: 400;
+
+  span {
+    font-style: italic;
+    opacity: 0.8;
+  }
 `;
 
-export const ItemDate = styled(BaseText)``;
+export const ItemDate = styled(BaseText)`
+  font-weight: 500;
+  opacity: 0.9;
+  white-space: nowrap;
+`;
 
-export const ItemText = styled(BaseText)``;
+export const ItemText = styled(BaseText)`
+  font-weight: 400;
+  ${({ theme }) => theme.mixins.oneLineText};
+`;

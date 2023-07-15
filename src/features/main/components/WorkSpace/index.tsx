@@ -1,10 +1,24 @@
-import { CreatedDate, WorkSpaceText, WorkSpaceWrapper } from './styles';
+import { displayDate } from '@/utils/displayDate';
+import { useNotesContext } from '@/utils/hooks/useNotesContext';
+import NoteForm from '../NoteForm';
+import { WorkSpaceDate, WorkSpaceWrapper } from './styles';
+import WorkSpaceContent from './WorkSpaceContent';
 
 const WorkSpace = () => {
+  const { currentNote, isNoteUpdate } = useNotesContext();
+
   return (
     <WorkSpaceWrapper>
-      <CreatedDate>12/12/2003 20:89 PM </CreatedDate>
-      <WorkSpaceText>WorkSpace</WorkSpaceText>
+      {currentNote ? (
+        <>
+          <WorkSpaceDate>{displayDate(currentNote.createdAt)}</WorkSpaceDate>
+          {!isNoteUpdate ? (
+            <WorkSpaceContent currentNote={currentNote} />
+          ) : (
+            <NoteForm />
+          )}
+        </>
+      ) : null}
     </WorkSpaceWrapper>
   );
 };

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const HEADER_HEATH = 62;
+import { HEADER_HEATH } from '@/utils/calcHeight';
 
 export const HeaderWrapper = styled.header`
   position: sticky;
@@ -37,5 +37,14 @@ export const Button = styled.button`
     outline: none;
     color: var(--white);
     background-color: var(--dark-gray);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+
+    &:is(:hover, :active, :focus) {
+      color: var(--dark-gray);
+      background-color: var(--white);
+    }
   }
 `;

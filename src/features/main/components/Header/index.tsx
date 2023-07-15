@@ -1,37 +1,27 @@
-import { useId } from 'react';
 import { IconType } from 'react-icons';
-import { AiOutlinePlus } from 'react-icons/ai';
-import { BsTrash } from 'react-icons/bs';
-import { FiEdit } from 'react-icons/fi';
 
 import SearchBox from '../SearchBox';
+import { ButtonTypes, useButtonsData } from './lib/useButtonsData';
 import { ApartContainer, Button, ButtonGroup, HeaderWrapper } from './styles';
 
 const Header = () => {
-  const icons = [
-    {
-      id: useId(),
-      svg: AiOutlinePlus,
-    },
-    {
-      id: useId(),
-      svg: BsTrash,
-    },
-    {
-      id: useId(),
-      svg: FiEdit,
-    },
-  ];
+  const buttonsData = useButtonsData();
 
   return (
     <HeaderWrapper>
       <ApartContainer>
         <ButtonGroup>
-          {icons.map((icon) => {
-            const Icon: IconType = icon.svg;
+          {buttonsData.map((btn) => {
+            const { id, svg, type, disabled, onClick } = btn;
+            const Icon: IconType = svg;
+
             return (
-              <li key={icon.id}>
-                <Button type="button">
+              <li key={id}>
+                <Button
+                  disabled={type !== ButtonTypes.CREATE && disabled}
+                  onClick={onClick}
+                  type="button"
+                >
                   <Icon />
                 </Button>
               </li>
