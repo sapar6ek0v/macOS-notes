@@ -10,7 +10,7 @@ type Props = {
 
 export const AppProvider = ({ children }: Props) => {
   return (
-    <React.Suspense fallback={<Loader centered />}>
+    <React.Suspense fallback={<Loader size={4} centered />}>
       <HelmetProvider>
         <Router>{children}</Router>
       </HelmetProvider>

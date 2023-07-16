@@ -1,47 +1,21 @@
-import { Note } from '@/db/types';
+import Loader from '@/components/Loader';
 import { useNotesContext } from '@/utils/hooks/useNotesContext';
-import { showDateOrTime } from '@/utils/showDateOrTime';
-
-import {
-  Item,
-  ItemDate,
-  ItemFooterGroup,
-  ItemText,
-  ItemTitle,
-  ListItemWrapper,
-  NotFoundTitle,
-} from './styles';
+import Item from './Item';
+import { ListItemWrapper, NotFoundTitle } from './styles';
 
 const ListItem = () => {
-  const { notes, currentNote, setCurrentNote, isNoteUpdate, setIsNoteUpdate } =
-    useNotesContext();
+  const { notes } = useNotesContext();
 
-  const handleSelectNote = (note: Note) => {
-    setCurrentNote(note);
-    if (isNoteUpdate) setIsNoteUpdate(false);
-  };
+  const result =
+    notes && notes.length ? (
+      notes.map((note) => <Item key={note.id} note={note} />)
+    ) : (
+      <NotFoundTitle>Nothing found for your request!</NotFoundTitle>
+    );
 
   return (
     <ListItemWrapper>
-      {notes && notes.length > 0 ? (
-        notes.map((note) => (
-          <Item
-            key={note.id}
-            onClick={() => handleSelectNote(note)}
-            $isActive={note.id === currentNote?.id}
-          >
-            <ItemTitle>{note.title || <span>Title...</span>}</ItemTitle>
-            <ItemFooterGroup>
-              <ItemDate>{showDateOrTime(note.createdAt)}</ItemDate>
-              <ItemText>
-                {note.description || <span>Description...</span>}
-              </ItemText>
-            </ItemFooterGroup>
-          </Item>
-        ))
-      ) : (
-        <NotFoundTitle>Nothing found for your request!</NotFoundTitle>
-      )}
+      {notes ? result : <Loader size={2} centered />}
     </ListItemWrapper>
   );
 };

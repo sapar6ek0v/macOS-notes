@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const ListItemWrapper = styled.ul`
+  position: relative;
+  height: 100%;
   ${({ theme }) => theme.mixins.column};
 `;
 
@@ -8,7 +10,7 @@ type ItemProps = {
   $isActive?: boolean;
 };
 
-export const Item = styled.li<ItemProps>`
+export const ItemWrapper = styled.li<ItemProps>`
   cursor: pointer;
   ${({ theme }) => theme.mixins.column};
   gap: 2.5px;

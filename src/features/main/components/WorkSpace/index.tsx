@@ -1,7 +1,8 @@
+import Loader from '@/components/Loader';
 import { displayDate } from '@/utils/displayDate';
 import { useNotesContext } from '@/utils/hooks/useNotesContext';
 import NoteForm from '../NoteForm';
-import { WorkSpaceDate, WorkSpaceWrapper } from './styles';
+import { WorkSpaceDate, WorkSpaceStack, WorkSpaceWrapper } from './styles';
 import WorkSpaceContent from './WorkSpaceContent';
 
 const WorkSpace = () => {
@@ -10,15 +11,17 @@ const WorkSpace = () => {
   return (
     <WorkSpaceWrapper>
       {currentNote ? (
-        <>
+        <WorkSpaceStack>
           <WorkSpaceDate>{displayDate(currentNote.createdAt)}</WorkSpaceDate>
           {!isNoteUpdate ? (
             <WorkSpaceContent currentNote={currentNote} />
           ) : (
             <NoteForm />
           )}
-        </>
-      ) : null}
+        </WorkSpaceStack>
+      ) : (
+        <Loader size={2} centered />
+      )}
     </WorkSpaceWrapper>
   );
 };

@@ -31,10 +31,14 @@ const rotate = keyframes`
   } 
 `;
 
-export const Line = styled.div`
+type LineProps = {
+  $size: number;
+};
+
+export const Line = styled.div<LineProps>`
   ${flexCenter};
   border-radius: 50%;
-  margin: 3px;
+  margin: ${(props) => props.$size}px;
   border: 2px solid #000000;
   border-left-color: transparent;
   border-top-color: transparent;

@@ -1,8 +1,16 @@
 import styled from 'styled-components';
 
+import { calcHeight } from '@/utils/calcHeight';
+
 export const WorkSpaceWrapper = styled.section`
-  ${({ theme }) => theme.mixins.column};
+  position: relative;
+  ${calcHeight()}
+  overflow: auto;
   flex: 1;
+`;
+
+export const WorkSpaceStack = styled.div`
+  ${({ theme }) => theme.mixins.column};
   gap: 15px;
   padding: 15px 40px;
 `;
@@ -29,8 +37,6 @@ export const WorkSpaceText = styled.p`
   }
 
   &.text {
-    height: calc(100vh - 184px);
-    overflow: auto;
     font-weight: 400;
     opacity: 0.8;
     white-space: pre;

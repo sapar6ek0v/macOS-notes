@@ -4,7 +4,8 @@ import { useNotesContext } from '@/utils/hooks/useNotesContext';
 import { Input, SearchBoxWrapper, SearchIcon } from './styles';
 
 const SearchBox = () => {
-  const { search, setSearch, currentNote, setCurrentNote } = useNotesContext();
+  const { notes, search, setSearch, currentNote, setCurrentNote } =
+    useNotesContext();
 
   const handleOnFocus = () => currentNote && setCurrentNote(null);
 
@@ -16,6 +17,7 @@ const SearchBox = () => {
           setSearch(e.target.value)
         }
         onFocus={handleOnFocus}
+        disabled={!notes}
         type="text"
         placeholder="Search by title, description"
       />

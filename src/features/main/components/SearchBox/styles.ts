@@ -27,6 +27,23 @@ export const Input = styled.input`
       color: var(--black);
     }
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    & + svg {
+      opacity: 0.5;
+    }
+
+    &:is(:hover, :active, :focus) {
+      border-color: var(--white);
+
+      & + svg {
+        color: var(--dark-gray);
+      }
+    }
+  }
 `;
 
 export const SearchIcon = styled(BiSearch)`
