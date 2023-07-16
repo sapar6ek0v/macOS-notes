@@ -60,3 +60,12 @@ export const ItemText = styled(BaseText)`
   font-weight: 400;
   ${({ theme }) => theme.mixins.oneLineText};
 `;
+
+export const NotFoundTitle = styled.span`
+  display: inline-block;
+  color: var(--black);
+  ${({ theme }) => theme.mixins.fs14};
+  font-weight: 700;
+  opacity: 0.9;
+  padding: 15px 50px;
+`;

@@ -4,6 +4,8 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '@/db';
 import { Note } from '@/db/types';
 import { catchError } from '@/utils/catchError';
+import { useDebounce } from '@/utils/hooks/useDebounce';
+import { sortByCreatedAt } from '@/utils/sortByCreatedAt';
 
 export type NotesContextType = {
   currentNote: Note | null;
@@ -11,6 +13,8 @@ export type NotesContextType = {
   notes: Note[] | undefined;
   isNoteUpdate: boolean;
   setIsNoteUpdate: (value: boolean) => void;
+  search: string;
+  setSearch: (value: string) => void;
   createError: string;
   deleteError: string;
   updateError: string;
@@ -31,8 +35,19 @@ const NotesProvider = ({ children }: Props) => {
   const [createError, setCreateError] = React.useState<string>('');
   const [updateError, setUpdateError] = React.useState<string>('');
   const [deleteError, setDeleteError] = React.useState<string>('');
+  const [search, setSearch] = React.useState<string>('');
+  const debouncedSearch = useDebounce(search, 300);
 
-  const notes = useLiveQuery(() => db.notes.toArray());
+  const notes = useLiveQuery(async () => {
+    const result = await db.notes
+      .where('title')
+      .startsWithIgnoreCase(debouncedSearch)
+      .or('description')
+      .startsWithIgnoreCase(debouncedSearch)
+      .toArray();
+
+    return sortByCreatedAt(result);
+  }, [debouncedSearch]);
 
   const createNote = React.useCallback(async () => {
     try {
@@ -70,6 +85,8 @@ const NotesProvider = ({ children }: Props) => {
       notes,
       isNoteUpdate,
       setIsNoteUpdate,
+      search,
+      setSearch,
       createError,
       updateError,
       deleteError,
@@ -81,6 +98,7 @@ const NotesProvider = ({ children }: Props) => {
       currentNote,
       notes,
       isNoteUpdate,
+      search,
       createError,
       updateError,
       deleteError,

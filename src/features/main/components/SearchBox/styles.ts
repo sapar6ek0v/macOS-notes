@@ -16,7 +16,7 @@ export const Input = styled.input`
   background: transparent;
   border-radius: var(--border-rds);
   border: 1px solid var(--white);
-  padding: 5px 10px;
+  padding: 5px 24px 5px 10px;
   transition: var(--ease-out);
 
   &:is(:hover, :active, :focus) {
