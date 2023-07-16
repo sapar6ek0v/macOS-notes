@@ -20,7 +20,7 @@ export const NewNoteInput = styled.input`
 export const NewNoteTextArea = styled.textarea`
   width: 100%;
   height: calc(100vh - 184px);
-  overflow: hidden;
+  overflow: auto;
   ${({ theme }) => theme.mixins.fs16};
   font-weight: 400;
   color: var(--black);

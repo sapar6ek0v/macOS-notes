@@ -5,6 +5,7 @@ import { HEADER_HEATH } from '@/utils/calcHeight';
 export const HeaderWrapper = styled.header`
   position: sticky;
   top: 0;
+  z-index: 100;
   height: ${HEADER_HEATH}px;
   padding: 15px 0;
   background-color: var(--gray);

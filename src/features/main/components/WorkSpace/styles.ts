@@ -29,8 +29,11 @@ export const WorkSpaceText = styled.p`
   }
 
   &.text {
+    height: calc(100vh - 184px);
+    overflow: auto;
     font-weight: 400;
     opacity: 0.8;
+    white-space: pre;
 
     span {
       opacity: 0.6;

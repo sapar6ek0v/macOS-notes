@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import { useId, useState } from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
 import { FiEdit } from 'react-icons/fi';
@@ -12,6 +12,8 @@ export enum ButtonTypes {
 }
 
 export function useButtonsData() {
+  const [isDelete, setIsDelete] = useState<boolean>(false);
+
   const {
     createNote,
     removeNote,
@@ -28,6 +30,7 @@ export function useButtonsData() {
     toggleNoteUpdate();
   };
 
+  const closeDeleteModal = () => setIsDelete(false);
   const deleteNote = () => {
     if (!currentNote) return;
 
@@ -48,7 +51,7 @@ export function useButtonsData() {
       id: useId(),
       type: ButtonTypes.DELETE,
       svg: BsTrash,
-      onClick: deleteNote,
+      onClick: () => setIsDelete(true),
       disabled: !currentNote,
     },
     {
@@ -60,5 +63,5 @@ export function useButtonsData() {
     },
   ];
 
-  return buttonsData;
+  return { buttonsData, deleteNote, isDelete, closeDeleteModal };
 }

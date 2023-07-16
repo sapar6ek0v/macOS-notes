@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 
 export const mixins = {
   apart: css`
@@ -37,5 +37,24 @@ export const mixins = {
   fs16: css`
     font-size: 16px;
     line-height: 20px;
+  `,
+
+  // animations
+  fadeIn: keyframes`
+    from {
+		  opacity:0;
+	  }
+	  to {
+		  opacity:1;
+    }
+  `,
+
+  fadeOut: keyframes`
+    from {
+      opacity: 1
+    }
+    to {
+      opacity: 0
+    }
   `,
 };
