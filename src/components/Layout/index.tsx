@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { GlobalStyles, theme } from '@/styles';
 
@@ -12,6 +14,7 @@ const Layout = ({ children }: Props) => {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       {children}
+      <ToastContainer />
     </ThemeProvider>
   );
 };

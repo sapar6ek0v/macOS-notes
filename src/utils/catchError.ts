@@ -1,7 +1,20 @@
-export const catchError = (err: unknown, setError: (error: string) => void) => {
+import { toast } from 'react-toastify';
+
+const customId = 'custom-id';
+
+export const errNotify = (message: string) => {
+  toast.error(message, {
+    toastId: customId,
+    position: toast.POSITION.TOP_RIGHT,
+    autoClose: false,
+    pauseOnFocusLoss: false,
+  });
+};
+
+export const catchError = (err: unknown) => {
   if (err instanceof Error) {
-    setError(err.message);
+    errNotify(err.message);
   } else {
-    setError('Something went wrong!');
+    errNotify('Something went wrong!');
   }
 };

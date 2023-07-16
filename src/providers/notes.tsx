@@ -15,9 +15,6 @@ export type NotesContextType = {
   setIsNoteUpdate: (value: boolean) => void;
   search: string;
   setSearch: (value: string) => void;
-  createError: string;
-  deleteError: string;
-  updateError: string;
   createNote: () => Promise<void>;
   updateNote: (note: Note) => Promise<void>;
   removeNote: (id: number) => Promise<void>;
@@ -32,9 +29,6 @@ export interface Props {
 const NotesProvider = ({ children }: Props) => {
   const [currentNote, setCurrentNote] = React.useState<Note | null>(null);
   const [isNoteUpdate, setIsNoteUpdate] = React.useState<boolean>(false);
-  const [createError, setCreateError] = React.useState<string>('');
-  const [updateError, setUpdateError] = React.useState<string>('');
-  const [deleteError, setDeleteError] = React.useState<string>('');
   const [search, setSearch] = React.useState<string>('');
   const debouncedSearch = useDebounce(search, 300);
 
@@ -58,7 +52,7 @@ const NotesProvider = ({ children }: Props) => {
         createdAt: new Date(),
       });
     } catch (err: unknown) {
-      catchError(err, setCreateError);
+      catchError(err);
     }
   }, []);
 
@@ -66,7 +60,7 @@ const NotesProvider = ({ children }: Props) => {
     try {
       await db.notes.update(note.id, { ...note });
     } catch (err: unknown) {
-      catchError(err, setUpdateError);
+      catchError(err);
     }
   }, []);
 
@@ -74,7 +68,7 @@ const NotesProvider = ({ children }: Props) => {
     try {
       await db.notes.delete(id);
     } catch (err: unknown) {
-      catchError(err, setDeleteError);
+      catchError(err);
     }
   }, []);
 
@@ -87,9 +81,6 @@ const NotesProvider = ({ children }: Props) => {
       setIsNoteUpdate,
       search,
       setSearch,
-      createError,
-      updateError,
-      deleteError,
       createNote,
       updateNote,
       removeNote,
@@ -99,9 +90,6 @@ const NotesProvider = ({ children }: Props) => {
       notes,
       isNoteUpdate,
       search,
-      createError,
-      updateError,
-      deleteError,
       createNote,
       updateNote,
       removeNote,

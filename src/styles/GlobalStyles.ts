@@ -79,4 +79,20 @@ export const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+  // component styles
+  .Toastify__toast-theme--light {
+    background: #454545;
+    color: #fff;
+    opacity: 0.9;
+  }
+
+  .Toastify__close-button--light {
+    color: #fff;
+    opacity: 0.6;
+
+    &:is(:hover, :focus, :active) {
+      opacity: 1;
+    }
+  }
 `;

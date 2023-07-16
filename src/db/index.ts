@@ -10,7 +10,7 @@ export class MySubClassedDexie extends Dexie {
   constructor() {
     super(DB_NAME);
     this.version(1).stores({
-      notes: '++id, title, description, createdAt',
+      notes: '++id, title, createdAt',
     });
   }
 }

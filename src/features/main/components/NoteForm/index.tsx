@@ -2,6 +2,7 @@ import { ChangeEvent, useEffect, useState } from 'react';
 
 import { useNotesContext } from '@/utils/hooks/useNotesContext';
 import { useDebounce } from '@/utils/hooks/useDebounce';
+import { catchError } from '@/utils/catchError';
 import { NewNoteInput, NewNoteTextArea } from './styles';
 
 const NoteForm = () => {
@@ -26,7 +27,7 @@ const NoteForm = () => {
         createdAt: new Date(),
       });
     } catch (err: unknown) {
-      console.log(err);
+      catchError(err);
     }
   };
 
