@@ -2,13 +2,19 @@ import styled from 'styled-components';
 import { BiSearch } from 'react-icons/bi';
 
 export const SearchBoxWrapper = styled.div`
+  /* Step 0: 165.00px → 350.00px */
+  --width: clamp(10.31rem, calc(5.8rem + 22.56vw), 21.88rem);
+
   position: relative;
-  width: min(30%, 300px);
+  width: var(--width);
   background-color: var(--white);
   border-radius: var(--border-rds);
 `;
 
 export const Input = styled.input`
+  /* padding-right: 18px → 24px */
+  --p-24: clamp(1.13rem, calc(0.98rem + 0.73vw), 1.5rem);
+
   width: 100%;
   ${({ theme }) => theme.mixins.fs16};
   font-weight: 400;
@@ -16,7 +22,7 @@ export const Input = styled.input`
   background: transparent;
   border-radius: var(--border-rds);
   border: 1px solid var(--white);
-  padding: 5px 24px 5px 10px;
+  padding: 5px var(--p-24) 5px var(--p-10);
   transition: var(--ease-out);
 
   &:is(:hover, :active, :focus) {
@@ -47,10 +53,14 @@ export const Input = styled.input`
 `;
 
 export const SearchIcon = styled(BiSearch)`
+  /* right: 3px → 6px */
+  --rh-6: clamp(0.19rem, calc(0.11rem + 0.37vw), 0.38rem);
+
   position: absolute;
-  top: 8px;
-  right: 6px;
-  font-size: 16px;
+  top: 50%;
+  right: var(--rh-6);
+  transform: translateY(-50%);
+  font-size: var(--fs-16);
   color: var(--dark-gray);
   transition: var(--ease-out);
 `;

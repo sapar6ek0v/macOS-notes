@@ -8,7 +8,7 @@ export const NewNoteInput = styled.input`
   opacity: 0.9;
   border: none;
   border-bottom: 1px solid var(--secondary-gray);
-  padding: 5px 15px;
+  padding: 5px var(--p-15);
   transition: var(--ease-out);
 
   &:is(:hover, :active, :focus) {
@@ -19,7 +19,7 @@ export const NewNoteInput = styled.input`
 
 export const NewNoteTextArea = styled.textarea`
   width: 100%;
-  height: calc(100vh - 184px);
+  height: calc(100vh - 164px);
   overflow: auto;
   ${({ theme }) => theme.mixins.fs16};
   font-weight: 400;
@@ -27,7 +27,7 @@ export const NewNoteTextArea = styled.textarea`
   opacity: 0.9;
   border: 1px solid var(--secondary-gray);
   border-radius: 0;
-  padding: 10px 15px;
+  padding: 10px var(--p-15);
 
   &:is(:hover, :active, :focus) {
     outline: none;

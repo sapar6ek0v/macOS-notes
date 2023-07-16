@@ -14,6 +14,8 @@ export type NotesContextType = {
   isNoteUpdate: boolean;
   setIsNoteUpdate: (value: boolean) => void;
   search: string;
+  // isMobile: boolean;
+  // setIsMobile: (value: boolean) => void;
   setSearch: (value: string) => void;
   createNote: () => Promise<void>;
   updateNote: (note: Note) => Promise<void>;
@@ -29,6 +31,7 @@ export interface Props {
 const NotesProvider = ({ children }: Props) => {
   const [currentNote, setCurrentNote] = React.useState<Note | null>(null);
   const [isNoteUpdate, setIsNoteUpdate] = React.useState<boolean>(false);
+  // const [isMobile, setIsMobile] = React.useState<boolean>(false);
   const [search, setSearch] = React.useState<string>('');
   const debouncedSearch = useDebounce(search, 300);
 
@@ -81,6 +84,8 @@ const NotesProvider = ({ children }: Props) => {
       setIsNoteUpdate,
       search,
       setSearch,
+      // isMobile,
+      // setIsMobile,
       createNote,
       updateNote,
       removeNote,
@@ -90,6 +95,7 @@ const NotesProvider = ({ children }: Props) => {
       notes,
       isNoteUpdate,
       search,
+      // isMobile,
       createNote,
       updateNote,
       removeNote,

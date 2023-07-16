@@ -10,9 +10,28 @@ export const WorkSpaceWrapper = styled.section`
 `;
 
 export const WorkSpaceStack = styled.div`
+  /* gap: 10px → 15px */
+  --gap-15: clamp(0.63rem, calc(0.5rem + 0.61vw), 0.94rem);
+
+  height: 100%;
   ${({ theme }) => theme.mixins.column};
-  gap: 15px;
-  padding: 15px 40px;
+  gap: var(--gap-15);
+
+  @media ${({ theme }) => theme.bp.bpTinyS} {
+    padding: 15px 50px;
+  }
+
+  @media ${({ theme }) => theme.bp.bpExtraSmall} {
+    padding: 15px 30px;
+  }
+
+  @media ${({ theme }) => theme.bp.bpSmall} {
+    padding: 15px 40px;
+  }
+
+  @media ${({ theme }) => theme.bp.bpMedium} {
+    padding: 15px 50px;
+  }
 `;
 
 export const WorkSpaceDate = styled.h1`

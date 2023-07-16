@@ -30,13 +30,13 @@ export const mixins = {
   `,
 
   fs14: css`
-    font-size: 14px;
-    line-height: 18px;
+    font-size: var(--fs-14);
+    line-height: var(--lh-18);
   `,
 
   fs16: css`
-    font-size: 16px;
-    line-height: 20px;
+    font-size: var(--fs-16);
+    line-height: var(--lh-20);
   `,
 
   // animations
