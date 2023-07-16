@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+# macOS Notes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simplified copy of the Notes program from
+Apple macOS operating system using Reactjs.
+The program was created using create-react-app.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Built With
 
-### `npm start`
+**Client:** React, TS, Dexie, styled-components.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- When you select a note on the left, the right is displayed
+  rendered text from the browser's local database
+  (indexeddb).
+- There is an add ("+") button, as well as two buttons - "Delete" and "Edit", which, if there is no selection, are inactive.
+- When you click on the "+" button, a new empty note appears.
+- When you click on the "Delete" button to happen
+  confirmation of deletion using a modal window.
+- During text editing, content is saved automatically.
+- Notes search is carried out by partial occurrence of characters.
 
-### `npm test`
+## Demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Open the [demo](https://mac-os-notes.vercel.app/) to view it in a browser.
 
-### `npm run build`
+## How To Use
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. First clone the repo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```sh
+   git clone https://github.com/sapar6ek0v/macOS-notes.git
+   ```
 
-### `npm run eject`
+2. Go to the project directory
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   ```sh
+   cd macOS-notes
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Install all packages
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   ```sh
+   npm install
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Running the app
 
-## Learn More
+##### In development mode
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- After installing all packages, run locally
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  ```sh
+  # development
+  npm start
+  ```
+
+##### In production mode
+
+- After installing all packages, run locally
+
+  ```sh
+  # production build
+  npm run build
+  ```
